@@ -1,0 +1,113 @@
+doctype html
+head
+	meta(charset='UTF-8')
+	meta(http-equiv='X-UA-Compatible' content='IE=Edge')
+	meta(name='description' content='')
+	meta(name='keywords' content='')
+	meta(name='author' content='Tooplate')
+	meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+	title= `${title}`
+	link(rel='stylesheet' href='css/bootstrap.min.css')
+	link(rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+	link(rel='stylesheet' href='css/animate.css')
+	link(rel='stylesheet' href='css/owl.carousel.css')
+	link(rel='stylesheet' href='css/owl.theme.default.min.css')
+	// MAIN CSS
+	link(rel='stylesheet' href='css/tooplate-style.css')
+		
+style.
+
+	.column {
+	float: left;
+	width: 33.33%;
+	padding: 0 10px;
+	}
+	.row {margin: 0 -5px;}
+	.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	}
+	@media screen and (max-width: 600px) {
+	.column {
+	width: 100%;
+	display: block;
+	margin-bottom: 20px;
+	}
+	}
+	.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	padding: 16px;
+	text-align: center;
+	}
+	.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	}
+	
+// PRE LOADER
+section.preloader
+	.spinner
+		span.spinner-rotate
+// MENU
+section.navbar.navbar-default.navbar-static-top(role='navigation')
+	.container
+		.navbar-header
+			a.navbar-brand(href='./user')
+				i.fa.fa-heartbeat
+				| Online Medicine Store
+			// MENU LINKS
+		.collapse.navbar-collapse
+			ul.nav.navbar-nav.navbar-right
+				li.appointment-btn
+					a(href='./search') Search Items
+				li.appointment-btn
+					a(href='./fcontact') Find Contacts
+				li.appointment-btn
+					a(href='./cart') Cart
+				li.appointment-btn
+					a(href='./logout') Sign Out
+
+.container
+	.listing-reg
+
+		h1 SEARCH MEDICINES
+		form#add(action='./addcart' method='POST')
+			.row
+				if items.length
+					each item in items
+						.column
+							.card
+								img(src='data:image/jpg;base64,' + item.img.data alt='imageunavailable' height='130' width='50%')
+								h4
+									b=item.name
+								p=item.desc
+								.row.no-gutters
+									.col-sm-5
+										p
+											b='Price: Rs.'+item.baseprice
+									.col-sm-7
+										button.btn.btn-primary(type='submit' form='add' value=item.name name='addtocart') Add to cart
+							br
+				else
+					p NO ITEMS :(
+// FOOTER
+.container
+	.row.justify-content-md-center
+		div(align='center')
+			.footer-thumb
+				h4.wow.fadeInUp(data-wow-delay='0.4s') Get medicines you need online, quick and easy!
+		.col-md-12.col-sm-12.border-top
+			div(align='center')
+				.credits
+					p Creator : Shilpi Char | Richa Gupta | Chaithanya Moozhickal
+
+// SCRIPTS
+script(src='js/jquery.js')
+script(src='js/bootstrap.min.js')
+script(src='js/jquery.sticky.js')
+script(src='js/jquery.stellar.min.js')
+script(src='js/wow.min.js')
+script(src='js/smoothscroll.js')
+script(src='js/owl.carousel.min.js')
+script(src='js/custom.js')

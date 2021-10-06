@@ -1,0 +1,59 @@
+extends layout
+
+block content
+
+	-data = data || {}
+	
+	section.h-100
+		.container.h-100
+			.row.justify-content-md-center.h-100
+				.card-wrapper
+					.card.fat
+						.card-body
+							h2.card-title
+								center
+									| Register
+							form#reg.my-login-validation(action='./register' method='POST' novalidate='')
+								.form-group
+									label(for='fullname') Full Name:
+									input#fullname.form-control(type='text' name='fullname' required='' autofocus='')
+									.invalid-feedback
+										| What's your name?
+								.form-group
+									label(for='address') Address:
+									input#address.form-control(type='text' name='address' required='' autofocus='')
+									.invalid-feedback
+										| Enter your Address.
+								.form-group
+									label(for='phone') Phone Number:
+									input#phone.form-control(type='text' name='phone' required='' autofocus='')
+									.invalid-feedback
+										| Enter your mobile no.
+								.form-group
+									label(for='email') Email Address
+									input#email.form-control(type='email' name='email' required='')
+									.invalid-feedback
+										| Your email is invalid
+								.form-group
+									label(for='password') Password
+									input#password.form-control(type='password' name='password' required='' data-eye='')
+									.invalid-feedback
+										| Password is required
+								if errors
+									ul.my-errors
+										for error in errors
+											li= error.msg	
+								if emailexist
+									ul.my-errors
+										li='Email already exists!'
+								
+								.form-group.m-0
+									button.btn.btn-success.btn-block(type='submit' form='reg')
+										|SUBMIT
+								.mt-4.text-center
+									| Already have an account? 
+									a(href='./login')
+										mark
+											u
+												b Login
+									br

@@ -1,0 +1,151 @@
+doctype html
+head
+	meta(charset='UTF-8')
+	meta(http-equiv='X-UA-Compatible' content='IE=Edge')
+	meta(name='description' content='')
+	meta(name='keywords' content='')
+	meta(name='author' content='Tooplate')
+	meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+	title= `${title}`
+	link(rel='stylesheet' href='css/bootstrap.min.css')
+	link(rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+	link(rel='stylesheet' href='css/animate.css')
+	link(rel='stylesheet' href='css/owl.carousel.css')
+	link(rel='stylesheet' href='css/owl.theme.default.min.css')
+	link(rel='stylesheet' href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css')
+	link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+
+	// MAIN CSS
+	link(rel='stylesheet' href='css/tooplate-style.css')
+// PRE LOADER
+section.preloader
+	.spinner
+		span.spinner-rotate
+// MENU
+section.navbar.navbar-default.navbar-static-top(role='navigation')
+	.container
+		.navbar-header
+			a.navbar-brand(href='./admin')
+				i.fa.fa-heartbeat
+				| Online Medicine Store
+			// MENU LINKS
+		.collapse.navbar-collapse
+			ul.nav.navbar-nav.navbar-right
+				li.appointment-btn
+					a(href='./inventory') Inventory
+				li.appointment-btn
+					a(href='./registrations') Users
+				li.appointment-btn
+					a(href='./ucontacts') Contacts
+				li.appointment-btn
+					a(href='./logout') Log Out
+		  
+.container
+	.listing-reg
+
+		h1 INVENTORY LIST
+		.row
+			.row.no-gutters
+				.col-sm-1
+					button.btn.btn-primary(type='submit' data-toggle='modal' data-target='#add')
+						i.fa.fa-plus 
+						| ADD
+				.col-sm-1
+					form#delinv(action='./delitem' method='POST')
+						button#delete1.btn.btn-primary(type='submit' form='delinv' value='' name='del')
+							i.fa.fa-trash
+							| DELETE
+		br
+		table#medicine.display.listing-table.table-dark.table-striped
+			thead
+				tr
+					th Name
+					th Description
+					th Company
+					th Base Unit
+					th Base Price
+					th Category
+				
+			tbody
+				if medicines.length
+					each medicine in medicines
+						tr
+							td= medicine.name
+							td= medicine.desc
+							td= medicine.company
+							td= medicine.baseunit
+							td= medicine.baseprice
+							td= medicine.category
+					
+			tfoot
+				tr
+					th Name
+					th Description
+					th Company
+					th Base Unit
+					th Base Price
+					th Category
+						
+
+		#add.modal.fade(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(type='button' data-dismiss='modal')
+							span(aria-hidden='true')
+								|×   
+							span.sr-only
+								|Close
+						h4#myModalLabel.modal-title Add Item				
+					.modal-body
+						form#additm.my-login-validation(action='./additem' method='POST' novalidate='')
+							.form-group
+								label(for='name') Name
+								input#name.form-control(type='text' name='name' required='' autofocus='')
+							.form-group
+								label(for='desc') Description
+								input#desc.form-control(type='text' name='desc' required='' autofocus='')
+							.form-group
+								label(for='company') Company
+								input#company.form-control(type='text' name='company' required='' autofocus='')
+							.form-group
+								label(for='baseunit') Base Unit
+								input#baseunit.form-control(type='number' name='baseunit' required='' autofocus='')
+							.form-group
+								label(for='baseprice') Base Price
+								input#baseprice.form-control(type='number' name='baseprice' required='' autofocus='')
+							.form-group
+								label(for='category') Category
+								input#category.form-control(type='text' name='category' required='' autofocus='')
+							.form-group
+								label(for='image') Upload Image
+								input#image(type='file' name='image' value='' required='')
+					.modal-footer
+						button.btn.btn-default(type='button' data-dismiss='modal')
+							|Close
+						button.btn.btn-primary(type='submit' form='additm' value='Submit') Submit
+		  
+// FOOTER
+.container
+	.row.justify-content-md-center
+		div(align='center')
+			.footer-thumb
+				h4.wow.fadeInUp(data-wow-delay='0.4s') Get medicines you need online, quick and easy!
+		.col-md-12.col-sm-12.border-top
+			div(align='center')
+				.credits
+					p Creator : Shilpi Char | Richa Gupta | Chaithanya Moozhickal
+
+// SCRIPTS
+script(src='js/jquery.js')
+script(src='js/bootstrap.min.js')
+script(src='js/jquery.sticky.js')
+script(src='js/jquery.stellar.min.js')
+script(src='js/wow.min.js')
+script(src='js/smoothscroll.js')
+script(src='js/owl.carousel.min.js')
+script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+script(src='https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+script(src='js/custom.js')
+script(src='js/tablecustomitems.js')

@@ -1,0 +1,151 @@
+doctype html
+head
+	meta(charset='UTF-8')
+	meta(http-equiv='X-UA-Compatible' content='IE=Edge')
+	meta(name='description' content='')
+	meta(name='keywords' content='')
+	meta(name='author' content='Tooplate')
+	meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+	title= `${title}`
+	link(rel='stylesheet' href='css/bootstrap.min.css')
+	link(rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+	link(rel='stylesheet' href='css/animate.css')
+	link(rel='stylesheet' href='css/owl.carousel.css')
+	link(rel='stylesheet' href='css/owl.theme.default.min.css')
+	link(rel='stylesheet' href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css')
+	link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+
+	// MAIN CSS
+	link(rel='stylesheet' href='css/tooplate-style.css')
+// PRE LOADER
+section.preloader
+	.spinner
+		span.spinner-rotate
+// MENU
+section.navbar.navbar-default.navbar-static-top(role='navigation')
+	.container
+		.navbar-header
+			a.navbar-brand(href='./admin')
+				i.fa.fa-heartbeat
+				| Online Medicine Store
+			// MENU LINKS
+		.collapse.navbar-collapse
+			ul.nav.navbar-nav.navbar-right
+				li.appointment-btn
+					a(href='./inventory') Inventory
+				li.appointment-btn
+					a(href='./registrations') Users
+				li.appointment-btn
+					a(href='./ucontacts') Contacts
+				li.appointment-btn
+					a(href='./logout') Log Out
+
+.container
+	.listing-reg
+
+		h1 CONTACTS LIST
+		.row
+			.row.no-gutters
+				.col-sm-1
+					button.btn.btn-primary(type='submit' data-toggle='modal' data-target='#add')
+						i.fa.fa-plus 
+						| ADD
+				.col-sm-1
+					form#delrec(action='./delcon' method='POST')
+						button#delete.btn.btn-primary(type='submit' form='delrec' value='' name='del')
+							i.fa.fa-trash
+							| DELETE
+		br
+		table#contact.display.listing-table.table-dark.table-striped
+			thead
+				tr
+					th Name
+					th Description
+					th Phone Number
+					th Email
+					th Address
+					th Affiliation
+				
+			tbody
+				if contacts.length
+					each contact in contacts
+						tr
+							td= contact.name
+							td= contact.description
+							td= contact.phone
+							td= contact.email
+							td= contact.address
+							td= contact.affiliation
+					
+			tfoot
+				tr
+				th Name
+					th Description
+					th Phone Number
+					th Email
+					th Address
+					th Affiliation
+						
+
+		#add.modal.fade(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(type='button' data-dismiss='modal')
+							span(aria-hidden='true')
+								|×   
+							span.sr-only
+								|Close
+						h4#myModalLabel.modal-title Add Contact				
+					.modal-body
+						form#addrec.my-login-validation(action='./addcon' method='POST' novalidate='')
+							.form-group
+								label(for='name') Name
+								input#name.form-control(type='text' name='name' required='' autofocus='')
+							.form-group
+								label(for='description') Description
+								input#description.form-control(type='text' name='description' required='' autofocus='')
+							.form-group
+								label(for='phone') Phone Number
+								input#phone.form-control(type='text' name='phone' required='' autofocus='')
+							.form-group
+								label(for='email') Email
+								input#email.form-control(type='email' name='email' required='' autofocus='')
+							.form-group
+								label(for='address') Address
+								input#address.form-control(type='text' name='address' required='' autofocus='')
+							.form-group
+								label(for='affiliation') Affiliation
+								input#affiliation.form-control(type='text' name='affiliation' required='' autofocus='')
+					.modal-footer
+						button.btn.btn-default(type='button' data-dismiss='modal')
+							|Close
+						button.btn.btn-primary(type='submit' form='addrec' value='Submit') Submit
+						
+// FOOTER
+.container
+	.row.justify-content-md-center
+		div(align='center')
+			.footer-thumb
+				h4.wow.fadeInUp(data-wow-delay='0.4s') Get medicines you need online, quick and easy!
+		.col-md-12.col-sm-12.border-top
+			div(align='center')
+				.credits
+					p Creator : Shilpi Char | Richa Gupta | Chaithanya Moozhickal
+
+// SCRIPTS
+script(src='js/jquery.js')
+script(src='js/bootstrap.min.js')
+script(src='js/jquery.sticky.js')
+script(src='js/jquery.stellar.min.js')
+script(src='js/wow.min.js')
+script(src='js/smoothscroll.js')
+script(src='js/owl.carousel.min.js')
+script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+script(src='https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+script(src='js/custom.js')
+script(src='js/tablecustomcontact.js')
+
+							
+		

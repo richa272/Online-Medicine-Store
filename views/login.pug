@@ -1,0 +1,46 @@
+extends layout
+
+block content
+
+	-data = data || {}
+
+	section.h-100
+		.container.h-100
+			.row.justify-content-md-center.h-100
+				.card-wrapper
+					.card.fat
+						.card-body
+							h2.card-title
+								center
+									| Login
+							form.my-login-validation(action='./login' method='POST' novalidate='')
+								.form-group
+									label(for='email') Email Address
+									input#email.form-control(type='email' name='email' value='' required='' autofocus='')
+									.invalid-feedback
+										| Email is invalid
+								.form-group
+									label(for='password') Password
+									input#password.form-control(type='password' name='password' required='' data-eye='')
+									.invalid-feedback
+										| Password is required
+								.form-group
+									.custom-checkbox.custom-control
+										input#remember.custom-control-input(type='checkbox' name='remember')
+										label.custom-control-label(for='remember') Remember Me
+										
+								if errors
+									ul.my-errors
+										li= "Check Email and Password!"	
+										
+								.form-group.m-0
+									button.btn.btn-success.btn-block(type='submit')
+										| SUBMIT
+										
+								.mt-4.text-center
+									| Don&apos;t have an account? 
+									a(href='./register')
+										mark
+											u
+												b Sign up
+									br

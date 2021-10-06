@@ -1,0 +1,130 @@
+doctype html
+head
+	meta(charset='UTF-8')
+	meta(http-equiv='X-UA-Compatible' content='IE=Edge')
+	meta(name='description' content='')
+	meta(name='keywords' content='')
+	meta(name='author' content='Tooplate')
+	meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+	title= `${title}`
+	link(rel='stylesheet' href='css/bootstrap.min.css')
+	link(rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+	link(rel='stylesheet' href='css/animate.css')
+	link(rel='stylesheet' href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css')
+	link(rel='stylesheet' href='css/owl.carousel.css')
+	link(rel='stylesheet' href='css/owl.theme.default.min.css')
+	// MAIN CSS
+	link(rel='stylesheet' href='css/tooplate-style.css')
+
+style.
+
+	.column {
+	float: left;
+	width: 50%;
+	padding: 0 10px;
+	}
+	.row {margin: 0 -5px;}
+	.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	}
+	@media screen and (max-width: 600px) {
+	.column {
+	width: 100%;
+	display: block;
+	margin-bottom: 20px;
+	}
+	}
+	h4 {
+	background-color: cyan;
+	}
+	h5 {
+	background-color: #004466;
+	}
+	.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	padding: 16px;
+	border-radius: 5px;
+	}
+	.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+	}
+		
+// PRE LOADER
+section.preloader
+	.spinner
+		span.spinner-rotate
+// MENU
+section.navbar.navbar-default.navbar-static-top(role='navigation')
+	.container
+		.navbar-header
+			a.navbar-brand(href='./user')
+				i.fa.fa-heartbeat
+				| Online Medicine Store
+			// MENU LINKS
+		.collapse.navbar-collapse
+			ul.nav.navbar-nav.navbar-right
+				li.appointment-btn
+					a(href='./search') Search Items
+				li.appointment-btn
+					a(href='./fcontact') Find Contacts
+				li.appointment-btn
+					a(href='./cart') Cart
+				li.appointment-btn
+					a(href='./logout') Sign Out
+
+.container
+	.listing-reg
+
+		h1 SEARCH CONTACTS
+		.row
+			if cons.length
+				each con in cons
+					.column
+						.card.text-white.bg-primary
+							.row.no-gutters
+								.col-sm-3
+									br
+									i.fas.fa-briefcase-medical(style='font-size:48px;color:cyan')
+									br
+									br
+									i.fas.fa-user-md(style='font-size:48px;color:cyan')
+									br
+									br
+									i.fas.fa-pills(style='font-size:48px;color:cyan')
+								.col-sm-9
+									h4
+										b=con.name
+									h5='Description: '+con.description
+									h5='Addresss: '+con.address
+									h5='Affiliation: '+con.affiliation
+									h5='Phone No.: '+con.phone
+									h5='Email: '+con.email
+						br
+			else
+				p NO CONTACTS :(
+							
+// FOOTER
+.container
+	.row.justify-content-md-center
+		div(align='center')
+			.footer-thumb
+				h3.wow.fadeInUp(data-wow-delay='0.4s') Get medicines you need online, quick and easy!
+		.col-md-12.col-sm-12.border-top
+			div(align='center')
+				.credits
+					p Creator : Shilpi Char | Richa Gupta | Chaithanya Moozhickal
+
+// SCRIPTS
+script(src='js/jquery.js')
+script(src='js/bootstrap.min.js')
+script(src='js/jquery.sticky.js')
+script(src='js/jquery.stellar.min.js')
+script(src='js/wow.min.js')
+script(src='js/smoothscroll.js')
+script(src='js/owl.carousel.min.js')
+script(src='https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')
+script(src='js/custom.js')
+script(src='https://kit.fontawesome.com/a076d05399.js')

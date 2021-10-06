@@ -1,0 +1,103 @@
+doctype html
+head
+	meta(charset='UTF-8')
+	meta(http-equiv='X-UA-Compatible' content='IE=Edge')
+	meta(name='description' content='')
+	meta(name='keywords' content='')
+	meta(name='author' content='Tooplate')
+	meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+	title= `${title}`
+	link(rel='stylesheet' href='css/bootstrap.min.css')
+	link(rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+	link(rel='stylesheet' href='css/animate.css')
+	link(rel='stylesheet' href='css/owl.carousel.css')
+	link(rel='stylesheet' href='css/owl.theme.default.min.css')
+	// MAIN CSS
+	link(rel='stylesheet' href='css/tooplate-style.css')
+// PRE LOADER
+section.preloader
+	.spinner
+		span.spinner-rotate
+// MENU
+section.navbar.navbar-default.navbar-static-top(role='navigation')
+	.container
+		.navbar-header
+			a.navbar-brand(href='/')
+				i.fa.fa-heartbeat
+				| Online Medicine Store
+		// MENU LINKS
+		.collapse.navbar-collapse
+			ul.nav.navbar-nav.navbar-right
+				li.appointment-btn
+					a(href='./register') Sign Up
+				li.appointment-btn
+					a(href='./login') Login
+// HOME
+section#home.slider(data-stellar-background-ratio='0.5')
+	.container
+		.row
+			.owl-carousel.owl-theme
+				.item.item-first
+					.caption
+						.col-md-offset-1.col-md-5
+							h3 Let's make your life happier
+							h1 Online Appointments
+				.item.item-second
+					.caption
+						.col-md-offset-1.col-md-10
+							h3 Get medicines from the comfort of your house!
+							h1 Convinient and Easy
+				.item.item-third
+					.caption
+						.col-md-offset-1.col-md-10
+							h3 Everything at the tip of you hands
+							h1 Just one click away :)
+//OPTIONS
+section#news(data-stellar-background-ratio='2.5')
+	.container
+		.row
+			.col-md-4.col-sm-6
+				.news-thumb.wow.fadeInUp(data-wow-delay='0.6s')
+					img.img-responsive(src='images/news-image1.jpg' alt='')
+					.news-info
+						h3 ORDER MEDICINES
+						a.btn.btn-success(href='./login' role='button') 
+							| ORDER NOW 
+							i.fas.fa-capsules
+			.col-md-4.col-sm-6
+				.news-thumb.wow.fadeInUp(data-wow-delay='0.6s')
+					img.img-responsive(src='images/news-image2.jpg' alt='')
+					.news-info
+						h3 DOCTOR CONSULTATION
+						a.btn.btn-success(href='./nonlogfindcontact' role='button')
+							| LOOK NOW 
+							i.fas.fa-id-card-alt
+			.col-md-4.col-sm-6
+				.news-thumb.wow.fadeInUp(data-wow-delay='0.8s')
+					img.img-responsive(src='images/news-image3.jpg' alt='')
+					.news-info
+						h3 LAB TEST
+						a.btn.btn-success(href='./underdev' role='button') 
+							| BOOK NOW 
+							i.fas.fa-diagnoses
+// FOOTER
+.container
+	.row.justify-content-md-center
+		div(align='center')
+			.footer-thumb
+				h4.wow.fadeInUp(data-wow-delay='0.4s') Get medicines you need online, quick and easy!
+		.col-md-12.col-sm-12.border-top
+			div(align='center')
+				.credits
+					p Creator : Shilpi Char | Richa Gupta | Chaithanya Moozhickal
+
+// SCRIPTS
+script(src='js/jquery.js')
+script(src='js/bootstrap.min.js')
+script(src='js/jquery.sticky.js')
+script(src='js/jquery.stellar.min.js')
+script(src='js/wow.min.js')
+script(src='js/smoothscroll.js')
+script(src='js/owl.carousel.min.js')
+script(src='js/custom.js')
+script(src='https://kit.fontawesome.com/a076d05399.js')
